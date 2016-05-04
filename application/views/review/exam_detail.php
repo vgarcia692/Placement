@@ -1,4 +1,3 @@
-<script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 <div class="content hidden-print" id="containerid">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -223,8 +222,9 @@
     </div>
 </div>
 <div class="visible-print-block">
-    <h1 style="display: block;margin-left: auto;margin-right: auto;" align="center">College of the Marshall Islands</h1>
     <div><img style="display: block;margin-left: auto;margin-right: auto;" src="<?php echo base_url('assets/images/cmiSeal.png') ?>"></div>
+    <h1 style="display: block;margin-left: auto;margin-right: auto;" align="center"><i>College of the Marshall Islands</i></h1>
+    <h1 style="display: block;margin-left: auto;margin-right: auto;" align="center">Placement Test</h1>
     <h1><?php echo $exam['f_name'].' '.$exam['m_initial'].$exam['l_name']; ?></h1>
     <legend>English</legend>
     <label>Level:</label><p><?php switch ($exam['accuplacer_level']) {
@@ -244,21 +244,7 @@
                                     echo 'Credit Level';
                                     break;
                             } ?></p>
-    <legend>Math</legend>
-    <label>Level:</label><p><?php switch ($exam['math_level']) {
-                                case 1:
-                                    echo 'Level 1';
-                                    break;
-                                case 2:
-                                    echo 'Level 2';
-                                    break;
-                                case 3:
-                                    echo 'Level 3';
-                                    break;
-                                case 4:
-                                    echo 'Credit Level';
-                                    break;
-                            } ?></p>
+    <label>Total Score:</label><p><?php echo $exam['accuplacer_english_score']; ?></p>
     <div id="footer">
         Jomi Capelle (Director, Admissions and Records): _______________________________   Date: <?php echo date_format(date_create(), 'M d, Y'); ?>
     </div>
