@@ -30,14 +30,15 @@ class Reviews extends CI_Controller {
         if (!$this->session->userType=='admin') {
             redirect('/');
         }
+        $cleanedHs = urldecode($hs);
 
         if (isset($_POST['search'])) {
             $name = $this->input->post('search');
             $data['searchTerm'] = $name;
             
             // PAGINATION CONFIG
-            $pagConfig['base_url'] = base_url('reviews/allExams'.'/'.$hs);
-            $result = $this->exams_model->count_all_like_name_exams($hs,$name);   
+            $pagConfig['base_url'] = base_url('reviews/allExams'.'/'.$cleanedHs);
+            $result = $this->exams_model->count_all_like_name_exams($cleanedHs,$name);   
             $pagConfig['total_rows'] = $result['number']; 
             $pagConfig['per_page'] = 20;   
             $this->pagination->initialize($pagConfig);
@@ -45,26 +46,26 @@ class Reviews extends CI_Controller {
                 
             // GET ALL EXAMS
             $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-            $data['exams'] = $this->exams_model->get_all_like_name_exams($pagConfig['per_page'],$data['page'],$hs,$name);
+            $data['exams'] = $this->exams_model->get_all_like_name_exams($pagConfig['per_page'],$data['page'],$cleanedHs,$name);
 
 
         } else {
             
             // PAGINATION CONFIG
-            $pagConfig['base_url'] = base_url('reviews/allExams'.'/'.$hs);
-            $pagConfig['total_rows'] = $this->exams_model->count_all_school_exams($hs);   
+            $pagConfig['base_url'] = base_url('reviews/allExams'.'/'.$cleanedHs);
+            $pagConfig['total_rows'] = $this->exams_model->count_all_school_exams($cleanedHs);   
             $pagConfig['per_page'] = 20;   
             $this->pagination->initialize($pagConfig);
             $data['pagnation_links'] = $this->pagination->create_links();
                 
             // GET ALL EXAMS
             $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-            $data['exams'] = $this->exams_model->get_all_school_exams($pagConfig['per_page'],$data['page'],$hs);
+            $data['exams'] = $this->exams_model->get_all_school_exams($pagConfig['per_page'],$data['page'],$cleanedHs);
 
         }
 
 
-        $data['hs'] = $hs;
+        $data['hs'] = $cleanedHs;
 
         $this->load->view('templates/header');
         $this->load->view('templates/navigation');
