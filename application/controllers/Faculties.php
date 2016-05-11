@@ -17,9 +17,9 @@ class Faculties extends CI_Controller {
         }
 
         // PAGINATION CONFIG
-        $pagConfig['base_url'] = base_url('scorings/allFacultyInput');
+        $pagConfig['base_url'] = base_url('faculties/allFacultyInput');
         $pagConfig['total_rows'] = $this->exams_model->count_exams_for_faculty_input();   
-        $pagConfig['per_page'] = 20;   
+        $pagConfig['per_page'] = 5;   
         $this->pagination->initialize($pagConfig);
         $data['pagnation_links'] = $this->pagination->create_links();
             
