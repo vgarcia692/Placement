@@ -26,6 +26,7 @@ class Faculties extends CI_Controller {
         // GET ALL EXAMS
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $data['exams'] = $this->exams_model->get_exams_for_faculty_input($pagConfig['per_page'],$data['page']);
+        $data['allExamsForPrint'] = $this->exams_model->get_exams_for_faculty_input(0,0);
         
         $this->load->view('templates/header');
         $this->load->view('templates/navigation');
