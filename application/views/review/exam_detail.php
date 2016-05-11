@@ -68,6 +68,9 @@
 
                     <label>Final Placement</label>
                     <p><?php switch ($exam['final_score']) {
+                                case 0:
+                                    echo 'Cannot Be Placed';
+                                    break;
                                 case 1:
                                     echo 'Level 1';
                                     break;
@@ -82,7 +85,23 @@
                                     break;
                             } ?></p>
                     <label>Faculty Placement</label>
-                    <p><?php echo $exam['faculty_score']; ?></p>
+                    <p><?php switch ($exam['faculty_score']) {
+                                case 0:
+                                    echo 'Cannot Be Placed';
+                                    break;
+                                case 1:
+                                    echo 'Level 1';
+                                    break;
+                                case 2:
+                                    echo 'Level 2';
+                                    break;
+                                case 3:
+                                    echo 'Level 3';
+                                    break;
+                                case 4:
+                                    echo 'Credit Level';
+                                    break;
+                            } ?></p>
                     <label>English Level</label>
                     <p><?php switch ($exam['accuplacer_level']) {
                                 case 0:

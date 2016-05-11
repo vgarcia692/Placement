@@ -12,7 +12,7 @@
             
                 <div class="form-group">
                     <label for="score">Writing Sample Score</label>
-                    <input type="number" class="form-control" id="score" name="score" max='4' min="1" required>
+                    <input type="number" class="form-control" id="score" name="score" max='4' min="0" required>
                 </div>
             
                 <button type="submit" class="btn btn-primary">Submit</button>

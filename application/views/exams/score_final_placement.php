@@ -32,6 +32,7 @@
                 <div class="form-group">
                     <label for="finalPlacement">Writing Sample Score</label>
                     <select name="finalPlacement" class="form-control">
+                        <option value="0">(0) Cannot Be Placed</option>
                         <option value="1">(1) Level 1</option>
                         <option value="2">(2) Level 2</option>
                         <option value="3">(3) Level 3</option>
