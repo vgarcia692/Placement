@@ -73,10 +73,10 @@ $(function(){
                         <td><a href="<?php echo base_url('reviews/exam/'.$exam['id']); ?>"><?php echo $exam['id']; ?></a></td>
                         <td><?php echo date_format(date_create($exam['test_date']), 'M d, Y'); ?></td>
                         <td><?php echo $exam['name']; ?></td>
-                        <td> English:
+                        <td> Final:
                         
                         <?php 
-                            switch ($exam['accuplacer_level']) {
+                            switch ($exam['final_score']) {
                                 case 0:
                                     echo 'Did Not Pass';
                                     break;

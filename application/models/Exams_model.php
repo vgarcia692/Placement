@@ -227,7 +227,7 @@ class Exams_model extends CI_Model {
     }
 
     public function get_all_school_exams($limit,$offset,$hs) {
-        $this->db->select("id, test_date, CONCAT(f_name,' ',m_initial,' ',l_name) as name, math_level, accuplacer_level, taken_before");
+        $this->db->select("id, test_date, CONCAT(f_name,' ',m_initial,' ',l_name) as name, math_level, accuplacer_level, taken_before, final_score");
         $this->db->order_by('test_date', 'ASC');
         $this->db->where('high_school', $hs);
         $this->db->limit($limit, $offset);
@@ -245,7 +245,7 @@ class Exams_model extends CI_Model {
     }
 
     public function get_all_like_name_exams($limit,$offset,$hs,$name) {
-        $sql = "SELECT id, test_date, CONCAT(f_name,' ',m_initial,' ',l_name) as name, math_level,accuplacer_level, taken_before
+        $sql = "SELECT id, test_date, CONCAT(f_name,' ',m_initial,' ',l_name) as name, math_level,accuplacer_level, taken_before, final_score
                 
                 FROM exams
                 WHERE high_school = '".$hs."'
